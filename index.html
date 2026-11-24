@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bench Supply · Desk catalog</title>
+<link rel="stylesheet" href="styles.css">
+<script src="products.js" defer></script><script src="search.js" defer></script><script src="app.js" defer></script>
+</head>
+<body><main>
+<header><span class="wordmark">BENCH / SUPPLY</span><span class="header-note">Fictional inventory · USD</span></header>
+<div class="intro"><h1>Desk catalog</h1><p>Search for an item or narrow the list by category and price.</p></div>
+<form id="filters" aria-label="Catalog filters">
+  <label>Search<input name="query" type="search" maxlength="80" placeholder="Try desk lamp" autocomplete="off"></label>
+  <label>Category<select name="category"><option value="">All categories</option></select></label>
+  <label>Max price (USD)<input name="budget" type="text" inputmode="decimal" maxlength="24" placeholder="No limit" aria-describedby="budget-error"></label>
+  <button type="reset">Clear filters</button>
+</form>
+<p id="budget-error" role="alert" hidden>Enter a non-negative price, for example 30 or 29.99.</p>
+<p id="status" role="status" aria-live="polite"></p>
+<p id="empty" hidden>No matching items. Try removing a filter or using a shorter search.</p>
+<div id="results" class="catalog"></div>
+<noscript>This catalog needs JavaScript for search and filters.</noscript>
+<template id="product"><article class="item">
+  <div class="eyebrow"><span data-field="category"></span><span data-field="id"></span></div>
+  <h2 data-field="name"></h2><p data-field="note"></p>
+  <div class="spec"><span><i class="swatch" aria-hidden="true"></i><span data-field="color"></span></span><strong data-field="price"></strong></div>
+</article></template>
+</main></body></html>
